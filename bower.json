@@ -1,0 +1,25 @@
+{
+  "name": "peigong-blog-webapp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/peigong/peigong.github.io",
+  "authors": [
+    "周培公 <peigong@foxmail.com>"
+  ],
+  "description": "peigong blog web app.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "async": "~0.9.2",
+    "almond": "~0.3.0",
+    "zeptojs": "~1.1.4",
+    "director": "~1.2.2",
+    "doT": "~1.0.1",
+    "EventEmitter": "https://github.com/peigong/EventEmitter.git"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "jekyll-blog-app",
+  "version": "0.1.0",
+  "homepage": "https://github.com/peigong/jekyll-blog-app",
+  "authors": [
+    "周培公 <peigong@foxmail.com>"
+  ],
+  "description": "Jekyll Blog Web APP",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-exec": "^0.4.6",
+    "time-grunt": "^1.0.0",
+    "load-grunt-tasks": "^0.6.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

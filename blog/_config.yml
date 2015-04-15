@@ -1,0 +1,12 @@
+# For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink: articles/:categories/:title.html
+
+exclude: ["bower_components", "node_modules", "bower.json", "package.json", "Gruntfile.js"]
+auto: true
+pygments: true
+
+# Site settings
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://hostname" # the base hostname & protocol for your site
+# Build settings
+markdown: kramdown

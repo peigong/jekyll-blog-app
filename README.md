@@ -1,2 +1,1 @@
-# jekyll-blog-app
-Jekyll Blog Web APP
+# Jekyll Blog Web APP #

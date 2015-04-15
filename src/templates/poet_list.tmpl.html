@@ -1,0 +1,5 @@
+<ul class="poet">
+    {{~ it.posts:item:idx }}
+    <li><a href="#/{{= it.channel }}/{{= item.categories }}/{{= item.filename }}" data-id="{{= item.id }}">{{= item.title }}</a></li>
+    {{~}}
+</ul>

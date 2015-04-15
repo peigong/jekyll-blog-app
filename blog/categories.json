@@ -1,0 +1,13 @@
+[
+	{
+		"name": "parent",
+		"title": "父类别",
+		"categories": [
+			{
+				"name": "sun",
+				"title": "子类别",
+				"description": ""
+			}
+		]
+	}
+]
