@@ -13,7 +13,7 @@ module.exports = function (grunt) {
         copy: {
             app: {
                 files: [
-                    { expand: true, cwd: 'bower_components/jekyll-blog-app/dist', src: ['**'], dest: '.'}
+                    { expand: true, cwd: 'bower_components/jekyll-blog-app', src: ['dist/**', 'jekyll/**'], dest: '.'}
                 ]
             }
         },
