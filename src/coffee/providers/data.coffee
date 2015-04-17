@@ -82,7 +82,7 @@ define ['jquery'], ($) ->
                 item.filename = arr.pop()
                 posts.push item
             push post for post in data when post.link.length
-            return post
+            return posts
         
         getJSON './posts.json', check, callback
 

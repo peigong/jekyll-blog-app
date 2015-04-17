@@ -17,6 +17,9 @@ module.exports = function (grunt) {
             },
             mock: {
                 files: [{ expand: true, cwd: 'mock', src: ['**'], dest: 'dist' }]
+            },
+            templates: {
+                files: [{ expand: true, cwd: 'src', src: ['templates/**'], dest: 'dist/scripts' }]
             }
         },
 
@@ -82,7 +85,7 @@ module.exports = function (grunt) {
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: '.tmp/scripts',
                     name: 'main',
-                    out: '.tmp/main.js',
+                    out: 'dist/scripts/main.js',
                     paths: {
                         'async': '../../bower_components/async/lib/async',
                         'jquery': '../../.tmp/lib/jquery',
