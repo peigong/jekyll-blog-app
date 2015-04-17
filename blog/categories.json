@@ -1,11 +1,32 @@
 [
 	{
-		"name": "parent",
-		"title": "父",
+		"name": "parent1",
+		"title": "父1",
 		"categories": [
 			{
-				"name": "sun",
-				"title": "子类别",
+				"name": "sun11",
+				"title": "子类别11",
+				"description": ""
+			},
+			{
+				"name": "sun12",
+				"title": "子类别12",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "parent2",
+		"title": "父2",
+		"categories": [
+			{
+				"name": "sun21",
+				"title": "子类别21",
+				"description": ""
+			},
+			{
+				"name": "sun22",
+				"title": "子类别22",
 				"description": ""
 			}
 		]

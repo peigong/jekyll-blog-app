@@ -7,11 +7,17 @@ define ['jquery', 'providers/data', 'providers/template'], ($, data, template) -
             @copyright = $ '#copyright'
             if not @settings
                 that = @
-                data.getSiteSettings()
+                data.getSettings()
                 .then @load.bind @
                 .fail (err) ->
                     throw err
         load: (settings) -> 
             that = @
             @settings = settings
-    return new Navigation
+            console.log 'load'
+            console.log @settings
+        render: () ->
+            console.log 'render'
+            console.log @settings
+
+    return new Site

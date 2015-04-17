@@ -8,7 +8,7 @@ define ['jquery'], ($) ->
         defer = $.Deferred()
         if url
             checked = check()
-            if not checked
+            if checked
                 defer.resolve checked
             else
                 $.getJSON url
@@ -22,7 +22,7 @@ define ['jquery'], ($) ->
             
         return defer.promise()
 
-    getSiteSettings = () ->
+    getSettings = () ->
         check = () ->
             if settings and settings.length
                 return settings
@@ -32,7 +32,7 @@ define ['jquery'], ($) ->
             settings = data
             return settings
         
-        get './site.json', check, callback
+        get './settings.json', check, callback
 
     getCategories = () ->
         check = () ->
@@ -75,7 +75,7 @@ define ['jquery'], ($) ->
         get link, check, callback
 
     exports = 
-        getSiteSettings: getSiteSettings
+        getSettings: getSettings
         getCategories: getCategories
         getPosts: getPosts
         getPost: getPost

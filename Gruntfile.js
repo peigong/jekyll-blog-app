@@ -12,20 +12,11 @@ module.exports = function (grunt) {
         },
 
         copy: {
-            jekyll: {
-                files: [
-                    { expand: true, cwd: 'jekyll', src: ['posts.json'], dest: 'dist'}
-                ]
+            blog: {
+                files: [{ expand: true, cwd: 'blog', src: ['settings.json', 'categories.json'], dest: 'dist'}]
             },
             mock: {
-                files: [
-                    { 
-                        expand: true,
-                        cwd: 'mock',
-                        src: ['articles/**', 'images/**', 'categories.json', 'posts.json', 'site.json'],
-                        dest: 'dist'
-                    }
-                ]
+                files: [{ expand: true, cwd: 'mock', src: ['articles/**', 'images/**', 'posts.json'], dest: 'dist' }]
             }
         },
 
