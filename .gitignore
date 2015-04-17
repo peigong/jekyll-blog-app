@@ -1,5 +1,6 @@
 .tmp
 
+dist
 dist/articles
 dist/images
 dist/categories.json

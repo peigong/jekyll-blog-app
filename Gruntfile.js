@@ -87,11 +87,11 @@ module.exports = function (grunt) {
             dist: {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
+                    optimize: 'none',
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: '.tmp/scripts',
                     name: 'main',
                     out: '.tmp/main.js',
-                    //optimize: 'none',
                     paths: {
                         'async': '../../bower_components/async/lib/async',
                         'jquery': '../../.tmp/lib/jquery',

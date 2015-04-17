@@ -1,7 +1,7 @@
 [
 	{
 		"name": "parent",
-		"title": "父类别",
+		"title": "父",
 		"categories": [
 			{
 				"name": "sun",

@@ -1,53 +1,83 @@
 define ['jquery'], ($) ->
+    settings = {}
     categories = []
     posts = []
     dict = {}
 
-    exports = 
-        getCategories: () ->
-            defer = $.Deferred()
+    get = (url, check, callback) ->
+        defer = $.Deferred()
+        if url
+            checked = check()
+            if not checked
+                defer.resolve checked
+            else
+                $.getJSON url
+                .then (data) ->
+                    result = callback data
+                    defer.resolve result
+                .fail (err) ->
+                    defer.reject err
+        else
+            defer.resolve ''
+            
+        return defer.promise()
+
+    getSiteSettings = () ->
+        check = () ->
+            if settings and settings.length
+                return settings
+            else
+                return false
+        callback = (data) ->
+            settings = data
+            return settings
+        
+        get './site.json', check, callback
+
+    getCategories = () ->
+        check = () ->
             if categories and categories.length
-                defer.resolve categories
+                return categories
             else
-                $.getJSON './categories.json'
-                .then (data) ->
-                    categories = data
-                    defer.resolve categories
-                .fail (err) ->
-                    defer.reject err
-            return defer.promise()
+                return false
+        callback = (data) ->
+            categories = data
+            return categories
+        
+        get './categories.json', check, callback
 
-        getPosts: () ->
-            defer = $.Deferred()
+    getPosts = () ->
+        check = () ->
             if posts and posts.length
-                defer.resolve posts
+                return posts
             else
-                $.getJSON './posts.json'
-                .then (data) ->
-                    push = (item) ->
-                        arr = item.link.split '/'
-                        item.filename = arr.pop()
-                        posts.push item
-                    push post for post in data when post.link.length
-                    defer.resolve posts
-                .fail (err) ->
-                    defer.reject err
-            return defer.promise()
+                return false
+        callback = (data) ->
+            push = (item) ->
+                arr = item.link.split '/'
+                item.filename = arr.pop()
+                posts.push item
+            push post for post in data when post.link.length
+            return post
+        
+        get './posts.json', check, callback
 
-        getPost: (link) ->
-            defer = $.Deferred()
+    getPost = (link) ->
+        check = () ->
             if dict.hasOwnProperty link
-                defer.resolve dict[link]
-            else if link
-                $.get link
-                .then (text) ->
-                    dict[link] = text
-                    defer.resolve text
-                .fail (err) ->
-                    defer.reject err
+                return dict[link]
             else
-                err = new Error 'link is empty.'
-                #defer.reject err
-            return defer.promise()
+                return false
+        callback = (data) ->
+            dict[link] = data
+            return data
+        
+        get link, check, callback
+
+    exports = 
+        getSiteSettings: getSiteSettings
+        getCategories: getCategories
+        getPosts: getPosts
+        getPost: getPost
 
     return exports
