@@ -1,17 +1,18 @@
 define ['jquery'], ($) ->
+    version = 0
     settings = {}
     categories = []
     posts = []
     dict = {}
 
-    get = (url, check, callback) ->
+    ajax = (method, url, check, callback) ->
         defer = $.Deferred()
         if url
             checked = check()
             if checked
                 defer.resolve checked
             else
-                $.getJSON url
+                $[method] url
                 .then (data) ->
                     result = callback data
                     defer.resolve result
@@ -22,6 +23,25 @@ define ['jquery'], ($) ->
             
         return defer.promise()
 
+    get = (url, check, callback) ->
+        ajax 'get', url, check, callback
+
+    getJSON = (url, check, callback) ->
+        ajax 'getJSON', url, check, callback
+
+    getVersion = () ->
+        check = () ->
+            if version
+                return version
+            else
+                return false
+        callback = (data) ->
+            date = new Date data.lastModified
+            version = date.getTime() / 1e3
+            return version
+        
+        get './CNAME', check, callback
+    
     getSettings = () ->
         check = () ->
             if settings and settings.length
@@ -32,7 +52,7 @@ define ['jquery'], ($) ->
             settings = data
             return settings
         
-        get './settings.json', check, callback
+        getJSON './settings.json', check, callback
 
     getCategories = () ->
         check = () ->
@@ -44,7 +64,11 @@ define ['jquery'], ($) ->
             categories = data
             return categories
         
-        get './categories.json', check, callback
+        getVersion()
+        .then (version) ->
+            console.log version
+
+        getJSON './categories.json', check, callback
 
     getPosts = () ->
         check = () ->
@@ -60,7 +84,7 @@ define ['jquery'], ($) ->
             push post for post in data when post.link.length
             return post
         
-        get './posts.json', check, callback
+        getJSON './posts.json', check, callback
 
     getPost = (link) ->
         check = () ->

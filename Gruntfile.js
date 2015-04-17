@@ -8,15 +8,15 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         clean: {
-            dist: ['.tmp']
+            dist: ['.tmp', 'dist']
         },
 
         copy: {
             blog: {
-                files: [{ expand: true, cwd: 'blog', src: ['settings.json', 'categories.json'], dest: 'dist'}]
+                files: [{ expand: true, cwd: 'blog', src: ['settings.json', 'categories.json', 'CNAME'], dest: 'dist'}]
             },
             mock: {
-                files: [{ expand: true, cwd: 'mock', src: ['articles/**', 'images/**', 'posts.json'], dest: 'dist' }]
+                files: [{ expand: true, cwd: 'mock', src: ['**'], dest: 'dist' }]
             }
         },
 

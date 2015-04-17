@@ -1,17 +1,6 @@
 .tmp
 
 dist
-dist/articles
-dist/images
-dist/categories.json
-dist/posts.json
-dist/site.json
-
-mock/articles
-mock/images
-mock/categories.json
-mock/posts.json
-mock/site.json
 
 node_modules
 bower_components
