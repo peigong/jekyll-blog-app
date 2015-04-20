@@ -1,4 +1,10 @@
-define ['jquery', 'EventEmitter', 'providers/data', 'providers/template'], ($, EventEmitter, data, template) ->
+define [
+    'jquery'
+    'EventEmitter'
+    'providers/data'
+    'providers/template'
+    'text!templates/nav.tmpl.html'
+], ($, EventEmitter, data, template, navTmpl) ->
     emitter = new EventEmitter
     class Navigation
         constructor: () ->
@@ -14,7 +20,7 @@ define ['jquery', 'EventEmitter', 'providers/data', 'providers/template'], ($, E
         load: (categories) -> 
             that = @
             @categories = categories
-            @navHTML = template.render @categories, 'tmpl-nav'
+            @navHTML = template.render @categories, 'tmpl-nav', navTmpl
             @el.html @navHTML
             $ '#nav ul.master a'
             .click () ->

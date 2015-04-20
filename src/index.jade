@@ -3,11 +3,10 @@ html
     head
         meta(charset='utf8')
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
-        title='周培公的博客-般若经舍'
+        title=''
         style(type='text/css')
-            include ../.tmp/styles/pygment_trac.css
-            include ../.tmp/styles/styles.css
-            include ../.tmp/styles/main.css
+            @import './styles/main.css';
+        script(data-main="scripts/app/main.js" src="scripts/lib/require.js")
     body
         #top-banner
         .wrapper

@@ -19,7 +19,16 @@ module.exports = function (grunt) {
                 files: [{ expand: true, cwd: 'mock', src: ['**'], dest: 'dist' }]
             },
             templates: {
-                files: [{ expand: true, cwd: 'src', src: ['templates/**'], dest: 'dist/scripts' }]
+                files: [{ expand: true, cwd: 'src', src: ['templates/**'], dest: 'dist/scripts/app' }]
+            },
+            bower_components: {
+                files: [
+                    { expand: true, cwd: 'bower_components/requirejs', src: ['require.js'], dest: 'dist/scripts/lib' },
+                    { expand: true, cwd: 'bower_components/async/lib', src: ['async.js'], dest: 'dist/scripts/lib' },
+                    { expand: true, cwd: 'bower_components/doT', src: ['doT.js'], dest: 'dist/scripts/lib' },
+                    { expand: true, cwd: 'bower_components/director/build', src: ['director.js'], dest: 'dist/scripts/lib' },
+                    { expand: true, cwd: 'bower_components/EventEmitter', src: ['EventEmitter.js'], dest: 'dist/scripts/lib' }
+                ]
             }
         },
 
@@ -32,7 +41,7 @@ module.exports = function (grunt) {
                     'bower_components/zeptojs/src/deferred.js',
                     'bower_components/zeptojs/src/ajax.js'
                 ],
-                dest: '.tmp/lib/jquery.js'
+                dest: 'dist/scripts/lib/zepto.js'
             }
         },
 
@@ -42,7 +51,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: './src/css',
                     src: '{,*/}*.css',
-                    dest: '.tmp/styles',
+                    dest: 'dist/styles',
                     ext: '.css'
                 }]
             }
@@ -57,7 +66,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: './src/less',
                     src: '{,*/}*.less',
-                    dest: '.tmp/styles',
+                    dest: 'dist/styles',
                     ext: '.css'
                 }]
             }
@@ -71,7 +80,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: './src/coffee',
                     src: '{,*/}*.coffee',
-                    dest: '.tmp/scripts',
+                    dest: 'dist/scripts/app',
                     ext: '.js'
                 }]
             }
@@ -131,7 +140,7 @@ module.exports = function (grunt) {
         },
 
         jade: {
-            './dist/index.html': './src/index.jade'
+            'dist/index.html': './src/index.jade'
         },
 
         htmlmin: {
@@ -148,7 +157,7 @@ module.exports = function (grunt) {
                     //removeOptionalTags: true
                 },
                 files: [ 
-                  { expand: true, cwd: '.tmp', src: ['*.html'], dest: './dist/' }
+                  { expand: true, cwd: '.tmp', src: ['*.html'], dest: './dist' }
                 ]
             }
         },
@@ -168,7 +177,7 @@ module.exports = function (grunt) {
             },
             coffee: {
                 files: ['./coffee/{,*/}*.coffee'],
-                tasks: ['coffee2js', 'jade']
+                tasks: ['coffee', 'jade']
             },
             jade: {
                 files: ['./{,*/}*.jade', './templates/{,*/}*.tmpl.html'],
@@ -201,7 +210,7 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'less',
-        'coffee2js',
+        'coffee',
         'jade'
     ]);
 }

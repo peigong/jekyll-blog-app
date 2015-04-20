@@ -2,20 +2,13 @@ define ['doT'], (doT) ->
     handlers = {}
     
     exports = 
-        render: (data, tmpl, def) ->
-            if not handlers.hasOwnProperty tmpl
-                ele = $ "##{ tmpl }"
-                if ele.size() is 0
-                    ele = $ "##{ def }"
-                text = ''
-                if ele.size() > 0
-                    text = ele.text()
-                    text = $.trim text
-                if text
-                    handlers[tmpl] = doT.template text
+        render: (data, id, tmpl, def) ->
+            if not handlers.hasOwnProperty id
+                if tmpl
+                    handlers[id] = doT.template tmpl
                 else
-                    handlers[tmpl] = () -> ''
+                    handlers[id] = () -> ''
             
-            return handlers[tmpl] data
+            return handlers[id] data
 
     return exports
