@@ -24,6 +24,7 @@ module.exports = function (grunt) {
             bower_components: {
                 files: [
                     { expand: true, cwd: 'bower_components/requirejs', src: ['require.js'], dest: 'dist/scripts/lib' },
+                    { expand: true, cwd: 'bower_components/text', src: ['text.js'], dest: 'dist/scripts/lib' },
                     { expand: true, cwd: 'bower_components/async/lib', src: ['async.js'], dest: 'dist/scripts/lib' },
                     { expand: true, cwd: 'bower_components/doT', src: ['doT.js'], dest: 'dist/scripts/lib' },
                     { expand: true, cwd: 'bower_components/director/build', src: ['director.js'], dest: 'dist/scripts/lib' },

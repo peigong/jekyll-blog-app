@@ -1,6 +1,16 @@
 define [
-    'async', 'jquery', 'EventEmitter', 'providers/data', 'providers/template'
-    ], (async, $, EventEmitter, data, template) ->
+    'async'
+    'jquery'
+    'EventEmitter'
+    'providers/data'
+    'providers/template'
+    'text!templates/common_list.tmpl.html'
+    'text!templates/it_list.tmpl.html'
+    'text!templates/poet_list.tmpl.html'
+], (async, $, EventEmitter, data, template, commonTmpl, itTmpl, poetTmpl) ->
+    dict = 
+        it: itTmpl
+        poet: poetTmpl
     emitter = new EventEmitter
     class Posts
         constructor: () ->
@@ -67,7 +77,12 @@ define [
                 it = 
                     channel: channel
                     posts: that.currentList
-                listHTML = template.render it, "tmpl-#{ channel }-list",  'tmpl-common-list'
+                id = 'tmpl-common-list'
+                tmpl = commonTmpl
+                if dict.hasOwnProperty channel
+                    id = "tmpl-#{ channel }-list"
+                    tmpl = dict[channel]
+                listHTML = template.render it, id, tmpl
                 that.el.html listHTML
                 emitter.emit 'current-list-ready'
             

@@ -1,11 +1,12 @@
 requirejs.config
     baseUrl: 'scripts/app'
     paths:
-        'async': 'scripts/lib/async',
-        'jquery': 'scripts/lib/zepto',
-        'doT': 'scripts/lib/doT',
-        'director': 'scripts/lib/director',
-        'EventEmitter': 'scripts/lib/EventEmitter'
+        'async': '../lib/async',
+        'text': '../lib/text',
+        'jquery': '../lib/zepto',
+        'doT': '../lib/doT',
+        'director': '../lib/director',
+        'EventEmitter': '../lib/EventEmitter'
     shim:
       async:
         exports: 'async'
