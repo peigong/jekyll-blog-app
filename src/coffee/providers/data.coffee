@@ -63,10 +63,6 @@ define ['jquery'], ($) ->
         callback = (data) ->
             categories = data
             return categories
-        
-        getVersion()
-        .then (version) ->
-            console.log version
 
         getJSON './categories.json', check, callback
 
