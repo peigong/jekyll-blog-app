@@ -1,12 +1,10 @@
 .tmp
 
-#dist
-dist/articles
-dist/categories.json
 dist/CNAME
-dist/index.html
+dist/articles
 dist/posts.json
 dist/settings.json
+dist/categories.json
 dist/scripts/app/build.txt
 
 node_modules
