@@ -1,6 +1,13 @@
 .tmp
 
-dist
+#dist
+dist/articles
+dist/categories.json
+dist/CNAME
+dist/index.html
+dist/posts.json
+dist/settings.json
+dist/scripts/app/build.txt
 
 node_modules
 bower_components

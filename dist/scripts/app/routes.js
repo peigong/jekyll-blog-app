@@ -1,0 +1,1 @@
+(function(){define(["controllers/blog"],function(e){var t;return t={"/:channel/:category/(.*.html)":e.route.bind(e),"/:channel/:category":e.route.bind(e),"/:channel":e.route.bind(e),"/":e.route.bind(e)},t})}).call(this);

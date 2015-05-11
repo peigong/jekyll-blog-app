@@ -1,0 +1,21 @@
+<div>
+    <ul class="master">
+        <li>[</li>
+        {{~ it:item:idx }}
+        {{? idx }}
+        <li>,</li>
+        {{?}}
+        <li><a href="#/{{= item.name }}" data-id="{{= item.name }}">{ {{= item.title }} }</a></li>
+        {{~}}
+        <li>]</li>
+    </ul>
+</div>
+<div >
+    {{~ it:item:idx }}
+    <ul class="slave" data-master="{{= item.name }}">
+        {{~ item.categories:ele:i }}
+        <li><a href="#/{{= item.name }}/{{= ele.name }}" title="{{= ele.description }}">( {{= ele.title }} )</a></li>
+        {{~}}
+    </ul>
+    {{~}}
+</div>

@@ -81,7 +81,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: './src/coffee',
                     src: '{,*/}*.coffee',
-                    dest: 'dist/scripts/app',
+                    dest: '.tmp/scripts/app',
                     ext: '.js'
                 }]
             }
@@ -91,50 +91,37 @@ module.exports = function (grunt) {
             dist: {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
-                    optimize: 'none',
-                    // `name` and `out` is set by grunt-usemin
-                    baseUrl: '.tmp/scripts',
-                    name: 'main',
-                    out: 'dist/scripts/main.js',
+                    // JS 文件优化方式，目前支持以下几种：
+                    //   uglify: （默认） 使用 UglifyJS 来压缩代码
+                    //   closure: 使用 Google's Closure Compiler 的简单优化模式
+                    //   closure.keepLines: 使用 closure，但保持换行
+                    //   none: 不压缩代码
+                    //optimize: 'none',
+                    // 模块根目录。默认情况下所有模块资源都相对此目录。
+                    // 若该值未指定，模块则相对build文件所在目录。
+                    // 若appDir值已指定，模块根目录baseUrl则相对appDir。
+                    baseUrl: '.tmp/scripts/app',
+                    // 指定输出目录，若值未指定，则相对 build 文件所在目录
+                    dir: 'dist/scripts/app',
+                    // 设置模块别名
+                    // RequireJS 2.0 中可以配置数组，顺序映射，当前面模块资源未成功加载时可顺序加载后续资源
                     paths: {
-                        'async': '../../bower_components/async/lib/async',
-                        'jquery': '../../.tmp/lib/jquery',
-                        'doT': '../../bower_components/doT/doT',
-                        'director': '../../bower_components/director/build/director',
-                        'EventEmitter': '../../bower_components/EventEmitter/EventEmitter'
+                        'text': 'empty:',
+                        'async': 'empty:',
+                        'jquery': 'empty:',
+                        'doT': 'empty:',
+                        'director': 'empty:',
+                        'EventEmitter': 'empty:'
                     },
-                    shim: {
-                      async: {
-                        exports: 'async'
-                      },
-                      jquery: {
-                        exports: 'Zepto'
-                      },
-                      doT: {
-                        exports: 'doT'
-                      },
-                      director: {
-                        exports: 'Router'
-                      },
-                      EventEmitter: {
-                        exports: 'EventEmitter'
-                      }
-                    },
-                    wrapShim: true,
-
+                    // 在 RequireJS 2.0.2 中，输出目录的所有资源会在 build 前被删除
+                    // 值为 true 时 rebuild 更快，但某些特殊情景下可能会出现无法预料的异常
+                    keepBuildDir: true,
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,
                     // required to support SourceMaps
                     // http://requirejs.org/docs/errors.html#sourcemapcomments
                     preserveLicenseComments: false,
-                    useStrict: true,
-                    //wrap: true,
-                    wrap: {
-                      startFile: [
-                        'bower_components/almond/almond.js'
-                      ]
-                    }
                     //uglify2: {} // https://github.com/mishoo/UglifyJS2
                 }
             }
@@ -211,7 +198,7 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'less',
-        'coffee',
+        'coffee2js',
         'jade'
     ]);
 }

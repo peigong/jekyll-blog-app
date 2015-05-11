@@ -1,0 +1,7 @@
+<ul>
+    {{~ it.posts:item:idx }}
+    <li>
+        <a href="#/{{= it.channel }}/{{= item.categories }}/{{= item.filename }}" data-id="{{= item.id }}">[{{= item.pubDate.year }}年{{= item.pubDate.month }}月{{= item.pubDate.day }}日] {{= item.title }}</a>
+    </li>
+    {{~}}
+</ul>
