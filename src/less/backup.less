@@ -1,0 +1,82 @@
+@import url('./themes/light-green.less');
+
+body {
+    border-top: 2px solid @brand-primary;
+    margin: 0px;
+    color: @text-color;
+    font-size: 14px;
+    font-family: 微软雅黑, 宋体;
+    line-height: 200%;
+
+    h1 {
+      font-size:24px;
+    }
+    
+    a {
+        color:@link-color;
+        font-weight: normal;
+        text-decoration:none;
+    }
+
+    a:hover {
+        color: @link-hover-color;
+    }
+
+    #top-banner {
+        background: @brand-bg-primary;
+    }
+    .wrapper {
+        width:1260px;
+        margin:0 auto;
+        header.main {
+            width:300px;
+            float:left;
+            position:fixed;
+            #brand {
+                font-size:28px;
+                margin: 0px;
+                line-height: 200%;
+            }
+            ul.master {
+                padding:0;
+                li {
+                    list-style:none;
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+            }
+            ul.slave {
+                padding-left: 10px;
+                li {
+                    list-style:none;
+                }
+            }
+        }
+
+        section.layout, aside.layout {
+            padding-top: 20px;
+            float:right;
+            padding-bottom:50px;
+        }
+        section#post {
+            width: 660px;
+        }
+        aside#list {
+            width: 300px;
+            ul {
+                padding-left: 50px;
+            }
+        }
+        section.poet {
+            padding: 20px 0 0 100px;
+        }
+        footer.main {
+            width:200px;
+            float:left;
+            position:fixed;
+            bottom:50px;
+        }
+    }
+}
+
