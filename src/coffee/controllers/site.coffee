@@ -4,14 +4,12 @@ define [
     'providers/template'
     'text!templates/top_banner.tmpl.html'
     'text!templates/copyright.tmpl.html'
-    'text!templates/statistics_cnzz.tmpl.html'
 ], ($, data, template, bannerTmpl, copyrightTmpl, statisticsTmpl) ->
     class Site
         constructor: () ->
             @banner = $ '#top-banner'
             @brand = $ '#brand'
             @copyright = $ '#copyright'
-            @statistics = $ '#statistics'
 
             if not @settings
                 that = @

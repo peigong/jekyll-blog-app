@@ -7,7 +7,7 @@ define [
     class Blog 
         constructor: () ->
         show: (channel, category, link) ->
-            nav.setCurrentNav channel, category
+            #nav.setCurrentNav channel, category
             posts.setCurrentList channel, category
             posts.getCurrentPostLink category, link
             .then (link) ->

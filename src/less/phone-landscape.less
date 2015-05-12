@@ -1,7 +1,17 @@
 /**
 * 手机横屏样式
 */
+@import url('./themes/light-green.less');
+
 body {
-    color: #888888;
-    font-weight: normal;
+    header.main {
+        border-right: 2px solid @brand-primary;
+        position: fixed;
+        right: 0;
+        height: 100%;
+        width: 2rem;
+        h1#brand {
+            display: none;
+        }
+    }
 }

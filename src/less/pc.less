@@ -1,6 +1,21 @@
 /**
 * PC样式
 */
+@import url('./themes/light-green.less');
+
 body {
-    background-color: #ffffff;
+    #top-banner {
+        border-top: 2px solid @brand-primary;
+        background: @brand-bg-primary;
+    }
+    header.main {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        #nav {
+            ul.master, ul.master li {
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
+            } 
+        }
+    }
 }

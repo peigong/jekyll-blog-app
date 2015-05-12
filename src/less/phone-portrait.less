@@ -1,7 +1,24 @@
 /**
 * 手机竖屏样式
 */
+@import url('./themes/light-green.less');
+
 body {
-    color: #ffffff;
-    font-weight: bold;
+    header.main, footer.main{
+        position: fixed;
+        width: 100%;
+    }
+    header.main {
+        bottom: 1rem;
+        #nav {
+            ul.master, ul.master li {
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
+            } 
+        }
+    }
+    footer.main  {
+        bottom: 0;
+        border-bottom: 2px solid @brand-primary;
+    }
 }
