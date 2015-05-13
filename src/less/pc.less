@@ -16,6 +16,37 @@ body {
                 padding-left: 0.25rem;
                 padding-right: 0.25rem;
             } 
+            div.slave {
+                text-align: left;
+                top: 2rem;
+                left: -1.5rem;
+            }
+            div.slave ul:before {
+                top:-0.25rem;
+                left: 2rem;
+                transform: rotate(45deg);
+            }
         }
+    }
+    div.wrapper {
+        display: box;
+        display: -moz-box;
+        display: -webkit-box;
+        width: 100%;
+        .layout {
+            box-sizing: border-box;
+        }
+        section#post {
+            box-flex: 1;
+            min-width: 30rem;
+            max-width: 60rem;
+        }
+        aside#list {
+            padding-left: 4rem;
+        }
+    }
+    footer.main #copyright {
+        width: 25%;
+        border-top: 1px solid @brand-primary;
     }
 }

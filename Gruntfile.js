@@ -21,6 +21,9 @@ module.exports = function (grunt) {
             templates: {
                 files: [{ expand: true, cwd: 'src', src: ['templates/**'], dest: 'dist/scripts/app' }]
             },
+            css: {
+                files: [{ expand: true, cwd: 'src/css', src: ['images/**'], dest: 'dist/styles' }]
+            },
             bower_components: {
                 files: [
                     { expand: true, cwd: 'bower_components/requirejs', src: ['require.js'], dest: 'dist/scripts/lib' },

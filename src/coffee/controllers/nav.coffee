@@ -30,9 +30,9 @@ define [
 
         show: (ele) ->
             id = ele.attr 'data-id'
-            $ '#nav ul.slave'
+            $ '#nav div.slave'
             .hide()
-            $ "#nav ul.slave[data-master=#{ id }]"
+            $ "#nav div.slave[data-master=#{ id }]"
             .show()
 
         setCurrentNav: (channel, category) ->
