@@ -5,6 +5,7 @@ body {
     font-size: 12px;
     font-family: 微软雅黑, 宋体;
     line-height: 200%;
+    background-color: #ffffff;
     
     a {
         color: @link-color;
@@ -18,11 +19,10 @@ body {
 
     header.main, div.wrapper, footer.main {
         padding-left: 1rem;
+        box-sizing: border-box;
+        background-color: #ffffff;
     }
     header.main {
-        h1#brand, #nav {
-            display: inline-block;
-        }
         h1#brand {
             font-size: 1.5rem;
         }
@@ -31,7 +31,6 @@ body {
                 text-align: center;
             }
             ul.master li {
-                display: inline-block;
                 position: relative;
                 font-size: 1.2rem;
             }
