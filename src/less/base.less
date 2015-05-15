@@ -1,5 +1,9 @@
 @import url('./themes/light-green.less');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     color: @text-color;
     font-size: 12px;
@@ -19,7 +23,6 @@ body {
 
     header.main, div.wrapper, footer.main {
         padding-left: 1rem;
-        box-sizing: border-box;
         background-color: #ffffff;
     }
     header.main {
@@ -62,8 +65,18 @@ body {
             }
         }
     }
-    div.wrapper .layout {
-        padding-top: 1rem;
-        padding-bottom: 5rem;
+    div.wrapper {
+        display: box;
+        display: -moz-box;
+        display: -webkit-box;
+        width: 100%;
+        .layout {
+            padding-top: 1rem;
+            padding-bottom: 4rem;
+            padding-right: 4rem;
+        }
+        section#post {
+            box-flex: 1;
+        }
     }
 }    

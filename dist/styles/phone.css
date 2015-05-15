@@ -1,1 +1,1 @@
-html,body,div.wrapper,section#post,aside#list{height:100%}body #top-banner{display:none}body section#post,body aside#list{min-height:100%;animation-duration:1s;animation-timing-function:linear}body section#post{display:block}body aside#list{display:none}
+html,body,div.wrapper,section#post,aside#list{height:100%}body #top-banner{display:none}body div.wrapper section#post,body div.wrapper aside#list{min-height:100%;max-width:100%;min-width:50%}

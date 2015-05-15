@@ -8,15 +8,11 @@ body {
     #top-banner {
         display: none;
     }
-    section#post, aside#list {
-        min-height: 100%;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-    }
-    section#post {
-        display: block;
-    }
-    aside#list {
-        display: none;
+    div.wrapper {
+        section#post, aside#list {
+            min-height: 100%;
+            max-width: 100%;
+            min-width: 50%;
+        }
     }
 }
