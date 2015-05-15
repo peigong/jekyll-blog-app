@@ -41,9 +41,13 @@ module.exports = function (grunt) {
                 src: [
                     'bower_components/zeptojs/src/zepto.js',
                     'bower_components/zeptojs/src/event.js',
-                    'bower_components/zeptojs/src/callbacks.js',
+                    'bower_components/zeptojs/src/ajax.js',
+                    'bower_components/zeptojs/src/detect.js',
+                    'bower_components/zeptojs/src/fx.js',
                     'bower_components/zeptojs/src/deferred.js',
-                    'bower_components/zeptojs/src/ajax.js'
+                    'bower_components/zeptojs/src/callbacks.js',
+                    'bower_components/zeptojs/src/touch.js',
+                    'bower_components/zeptojs/src/gesture.js'
                 ],
                 dest: 'dist/scripts/lib/zepto.js'
             }
