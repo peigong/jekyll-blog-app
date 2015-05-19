@@ -1,7 +1,7 @@
 define [
-    'providers/data',
-    'controllers/nav',
-    'controllers/posts',
+    'providers/data'
+    'controllers/nav'
+    'controllers/posts'
     'controllers/post'
 ], (data, nav, posts, post) ->
     class Blog 

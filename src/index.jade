@@ -5,15 +5,16 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
         title=''
         style(type='text/css')
-            @import './styles/main.css';
+            @import './styles/index.css';
         script(data-main="scripts/app/main.js" src="scripts/lib/require.js")
     body
         #top-banner
         header.main
             h1#brand 
             #nav
-        div.wrapper
-            section#post.layout
-            aside#list.layout
+        div.swiper-container
+            div.wrapper.swiper-wrapper
+                section#post.layout.swiper-slide
+                aside#list.layout.swiper-slide
         footer.main 
             #copyright

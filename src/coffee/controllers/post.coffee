@@ -1,4 +1,8 @@
-define ['jquery', 'providers/data', 'providers/template'], ($, data, template) ->
+define [
+    'jquery'
+    'providers/data'
+    'providers/template'
+], ($, data, template) ->
     class Post
         constructor: () ->
             @el = $ '#post'

@@ -31,6 +31,8 @@ module.exports = function (grunt) {
                     { expand: true, cwd: 'bower_components/async/lib', src: ['async.js'], dest: 'dist/scripts/lib' },
                     { expand: true, cwd: 'bower_components/doT', src: ['doT.js'], dest: 'dist/scripts/lib' },
                     { expand: true, cwd: 'bower_components/director/build', src: ['director.js'], dest: 'dist/scripts/lib' },
+                    { expand: true, cwd: 'bower_components/swiper/dist/js', src: ['swiper.jquery.js'], dest: 'dist/scripts/lib' },
+                    { expand: true, cwd: 'bower_components/swiper/dist/css', src: ['swiper.css'], dest: 'dist/styles' },
                     { expand: true, cwd: 'bower_components/EventEmitter', src: ['EventEmitter.js'], dest: 'dist/scripts/lib' }
                 ]
             }
@@ -42,6 +44,7 @@ module.exports = function (grunt) {
                     'bower_components/zeptojs/src/zepto.js',
                     'bower_components/zeptojs/src/event.js',
                     'bower_components/zeptojs/src/ajax.js',
+                    'bower_components/zeptojs/src/ie.js',
                     'bower_components/zeptojs/src/detect.js',
                     'bower_components/zeptojs/src/fx.js',
                     'bower_components/zeptojs/src/deferred.js',

@@ -7,7 +7,8 @@ define [
     'text!templates/common_list.tmpl.html'
     'text!templates/it_list.tmpl.html'
     'text!templates/poet_list.tmpl.html'
-], (async, $, EventEmitter, data, template, commonTmpl, itTmpl, poetTmpl) ->
+    'controllers/touch'
+], (async, $, EventEmitter, data, template, commonTmpl, itTmpl, poetTmpl, touch) ->
     dict = 
         it: itTmpl
         poet: poetTmpl
@@ -41,6 +42,8 @@ define [
                 categories = {} unless categories
                 posts = [] unless posts
                 that.load categories, posts
+            that.el.delegate 'ul li a', 'click', ()->
+                touch.toPost()
 
         load: (categories, posts) ->
             for category in categories

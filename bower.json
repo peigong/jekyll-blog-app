@@ -21,6 +21,7 @@
     "zeptojs": "~1.1.4",
     "director": "~1.2.2",
     "doT": "~1.0.1",
+    "swiper": "https://github.com/nolimits4web/Swiper.git#3.0.7",
     "EventEmitter": "https://github.com/peigong/EventEmitter.git"
   }
 }
