@@ -2,6 +2,7 @@
 	{
 		"name": "parent1",
 		"title": "父1",
+		"tmpl": "list_no_date",
 		"categories": [
 			{
 				"name": "sun11",

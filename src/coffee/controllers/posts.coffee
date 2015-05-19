@@ -4,14 +4,13 @@ define [
     'EventEmitter'
     'providers/data'
     'providers/template'
-    'text!templates/common_list.tmpl.html'
-    'text!templates/it_list.tmpl.html'
-    'text!templates/poet_list.tmpl.html'
+    'text!templates/list_has_date.tmpl.html'
+    'text!templates/list_no_date.tmpl.html'
     'controllers/touch'
-], (async, $, EventEmitter, data, template, commonTmpl, itTmpl, poetTmpl, touch) ->
+], (async, $, EventEmitter, data, template, hasDateTmpl, noDateTmpl, poetTmpl, touch) ->
     dict = 
-        it: itTmpl
-        poet: poetTmpl
+        list_has_date: hasDateTmpl
+        list_no_date: noDateTmpl
     emitter = new EventEmitter
     class Posts
         constructor: () ->
@@ -47,8 +46,9 @@ define [
 
         load: (categories, posts) ->
             for category in categories
-                @categories[category.name] = []
-                @categories[category.name].push cate.name for cate in category.categories
+                category.pool = []
+                category.pool.push cate.name for cate in category.categories
+                @categories[category.name] = category
             
             @posts[@key] = posts
             @loaded = true
@@ -61,7 +61,7 @@ define [
                 @posts[key] = []
                 if category is 'default'
                     check = (cate, counter) ->
-                        return (cate in that.categories[channel]) and (counter < 30)
+                        return (cate in that.categories[channel].pool) and (counter < 30)
                 else if category
                     check = (cate) ->
                         return cate is category
@@ -81,10 +81,12 @@ define [
                     channel: channel
                     posts: that.currentList
                 id = 'tmpl-common-list'
-                tmpl = commonTmpl
-                if dict.hasOwnProperty channel
-                    id = "tmpl-#{ channel }-list"
-                    tmpl = dict[channel]
+                tmpl = hasDateTmpl
+                if that.categories.hasOwnProperty(channel) and that.categories[channel] and that.categories[channel].tmpl
+                    tmpl_key = that.categories[channel].tmpl
+                    if dict.hasOwnProperty tmpl_key
+                        id = "tmpl-#{ channel }-list"
+                        tmpl = dict[tmpl_key]
                 listHTML = template.render it, id, tmpl
                 that.el.html listHTML
                 emitter.emit 'current-list-ready'

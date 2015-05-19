@@ -12,6 +12,8 @@ define [
             data.getPost(link)
             .then (text) ->
                 that.el.html "<section class=\"#{ clazz }\">#{ text }</section>"
+                $ 'article.post-content a', that.el
+                .attr 'target', '_blank'
             .fail (err) ->
                 throw err
     return new Post

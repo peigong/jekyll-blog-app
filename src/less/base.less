@@ -35,9 +35,9 @@ body {
     }
 
     pre {
-      padding:0.5rem 1rem;
+      padding:0.5rem;
       background: #f8f8f8;  
-      border-radius:0.5rem;
+      border-radius:0.25rem;
       border:1px solid #e5e5e5;
       overflow-x: auto;
     }
@@ -95,6 +95,15 @@ body {
         display: -moz-box;
         display: -webkit-box;
         width: 100%;
+        h1 {
+            font-size: 1.2rem;
+        }
+        h2 {
+            font-size: 1.1rem;
+        }
+        ul li {
+            list-style-type: square;
+        }
         .layout {
             padding-top: 1rem;
             padding-bottom: 4rem;
@@ -102,6 +111,11 @@ body {
         }
         section#post {
             box-flex: 1;
+            article.post-content img {
+                max-width: 100%;
+                width: auto;
+                height: auto;
+            }
         }
     }
 }    
