@@ -1,1 +1,0 @@
-(function(){define(["doT"],function(e){var t,n;return n={},t={render:function(t,r,i){return n.hasOwnProperty(r)||(i?n[r]=e.template(i):n[r]=function(){return""}),n[r](t)}},t})}).call(this);
