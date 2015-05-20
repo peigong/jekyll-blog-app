@@ -12,10 +12,10 @@ define [
                     swiper = new Swiper '.swiper-container'
                     $ 'body'
                     .swipeLeft () ->
-                        swiper.slidePrev()
+                        swiper.slideNext()
                     $ 'body'
                     .swipeRight () ->
-                        swiper.slideNext()
+                        swiper.slidePrev()
         toPost: ()->
             if isTouch()
                 swiper.slideTo 0

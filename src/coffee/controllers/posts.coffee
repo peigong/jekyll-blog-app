@@ -7,7 +7,7 @@ define [
     'text!templates/list_has_date.tmpl.html'
     'text!templates/list_no_date.tmpl.html'
     'controllers/touch'
-], (async, $, EventEmitter, data, template, hasDateTmpl, noDateTmpl, poetTmpl, touch) ->
+], (async, $, EventEmitter, data, template, hasDateTmpl, noDateTmpl, touch) ->
     dict = 
         list_has_date: hasDateTmpl
         list_no_date: noDateTmpl
