@@ -9,11 +9,33 @@ module.exports = function (grunt) {
     grunt.initConfig({
         clean: { dist: ['.tmp', 'dist'] },
         copy: {
-            blog: { files: [{ expand: true, cwd: 'blog', src: ['settings.json', 'categories.json', 'CNAME'], dest: 'dist'}] },
             mock: { files: [{ expand: true, cwd: 'mock', src: ['**'], dest: 'dist' }] },
+            css_images: { files: [{ expand: true, cwd: 'src/css', src: ['images/**'], dest: 'dist/styles' }] },
+            blog: { files: [{ expand: true, cwd: 'blog', src: ['settings.json', 'categories.json', 'CNAME'], dest: 'dist'}] },
             templates: { files: [{ expand: true, cwd: 'src', src: ['templates/**'], dest: '.tmp/scripts/app' }] },
-            css: { files: [{ expand: true, cwd: 'src/css', src: ['images/**'], dest: 'dist/styles' }] }
+            css: { files: [{ expand: true, cwd: 'src/css', src: ['**.css'], dest: '.tmp/styles' }] },
+            swiper: { files: [{ expand: true, cwd: 'bower_components/swiper/dist/css', src: ['swiper.css'], dest: '.tmp/styles' }] }
         },
+
+        less: {
+            options: {
+                compress: true
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: './src/less',
+                    src: '*.less',
+                    dest: '.tmp/styles',
+                    ext: '.css'
+                }]
+            }
+        },
+        
+        cssmin: {
+            dist: { files: [ { expand: true, cwd: '.tmp/styles', src: 'index.css', dest: 'dist/styles', ext: '.css' } ] }
+        },
+        
         concat: {
             dist: {
                 src: [
@@ -43,41 +65,6 @@ module.exports = function (grunt) {
                     { expand: true, cwd: 'bower_components/swiper/dist/js', src: ['swiper.jquery.js'], dest: '.tmp/scripts/lib' },
                     { expand: true, cwd: 'bower_components/EventEmitter', src: ['EventEmitter.js'], dest: '.tmp/scripts/lib' }
                 ]
-            }
-        },
-        
-        cssmin: {
-            dist: {
-                files: [
-                    { 
-                        expand: true,
-                        cwd: 'bower_components/swiper/dist/css',
-                        src: ['swiper.css'],
-                        dest: 'dist/styles'
-                    },
-                    {
-                        expand: true,
-                        cwd: './src/css',
-                        src: '{,*/}*.css',
-                        dest: 'dist/styles',
-                        ext: '.css'
-                    }
-                ]
-            }
-        },
-
-        less: {
-            options: {
-                compress: true
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: './src/less',
-                    src: '*.less',
-                    dest: 'dist/styles',
-                    ext: '.css'
-                }]
             }
         },
 
@@ -199,10 +186,10 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy',
+        'less',
+        'cssmin',
         'concat',
         'uglify',
-        'cssmin',
-        'less',
         'coffee',
         'requirejs',
         'jade'
