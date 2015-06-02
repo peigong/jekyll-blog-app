@@ -30,7 +30,8 @@ define [
             .click (e) ->
                 that.show $ this
                 touch.toList()
-                e.stopPropagation()
+                #e.stopPropagation()
+                return false;
             @loaded = true
             emitter.emit 'loaded'
         

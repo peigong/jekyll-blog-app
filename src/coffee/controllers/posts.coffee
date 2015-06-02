@@ -1,13 +1,13 @@
 define [
-    'async'
     'jquery'
     'EventEmitter'
+    'providers/async'
     'providers/data'
     'providers/template'
     'text!templates/list_has_date.tmpl.html'
     'text!templates/list_no_date.tmpl.html'
     'controllers/touch'
-], (async, $, EventEmitter, data, template, hasDateTmpl, noDateTmpl, touch) ->
+], ($, EventEmitter, async, data, template, hasDateTmpl, noDateTmpl, touch) ->
     dict = 
         list_has_date: hasDateTmpl
         list_no_date: noDateTmpl
@@ -16,11 +16,11 @@ define [
         constructor: () ->
             that = @
             @loaded = false
+            @key = '__all__'
             @el = $ '#list'
             @categories = {};
             @posts = {}
             @currentList = []
-            @key = '__all__'
 
             async.parallel
                 categories: (callback) ->
@@ -45,11 +45,7 @@ define [
                 touch.toPost()
 
         load: (categories, posts) ->
-            for category in categories
-                category.pool = []
-                category.pool.push cate.name for cate in category.categories
-                @categories[category.name] = category
-            
+            @categories = categories
             @posts[@key] = posts
             @loaded = true
             emitter.emit 'loaded'
@@ -57,20 +53,14 @@ define [
         getPosts: (channel, category) ->
             that = @
             key = ['posts', channel, category].join '-'
-            unless @posts.hasOwnProperty key
+            check = (cate) ->
+                return cate is category
+            if not @posts.hasOwnProperty key
                 @posts[key] = []
-                if category is 'default'
-                    check = (cate, counter) ->
-                        return (cate in that.categories[channel].pool) and (counter < 30)
-                else if category
-                    check = (cate) ->
-                        return cate is category
                 if @posts.hasOwnProperty @key
-                    counter = 0
                     for post in @posts[@key]
-                        if check post.categories, counter
+                        if check post.categories
                             @posts[key].push(post)
-                            counter++
             return @posts[key]
 
         setCurrentList: (channel, category) ->

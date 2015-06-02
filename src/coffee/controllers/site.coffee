@@ -27,7 +27,6 @@ define [
             @brand.html site.brand
             @render @banner, { text: site.tagline }, 'top-banner', bannerTmpl
             @render @copyright, { text: site.copyright }, 'copyright', copyrightTmpl
-            #@render @statistics, {}, 'statistics', statisticsTmpl
 
         render: (container, data, id, tmpl) ->
             html = template.render data, "tmpl-#{ id }", tmpl

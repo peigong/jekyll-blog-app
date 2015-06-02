@@ -1,10 +1,10 @@
 <ul class="master">
-    {{~ it:item:idx }}
+    {{~ it:item:key }}
     <li>
-        <a href="#/{{= item.name }}" data-id="{{= item.name }}">{{= item.title }}</a>
+        <a href="####" data-id="{{= item.name }}">{{= item.title }}</a>
         <div class="slave" data-master="{{= item.name }}">
             <ul>
-                {{~ item.categories:ele:i }}
+                {{~ item.categories:ele:k }}
                 <li><a href="#/{{= item.name }}/{{= ele.name }}" title="{{= ele.description }}">{{= ele.title }}</a></li>
                 {{~}}
             </ul>

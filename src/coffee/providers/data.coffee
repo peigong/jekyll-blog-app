@@ -1,7 +1,7 @@
 define ['jquery'], ($) ->
     version = 0
-    settings = {}
-    categories = []
+    settings = 0
+    categories = {}
     posts = []
     dict = {}
 
@@ -44,7 +44,7 @@ define ['jquery'], ($) ->
     
     getSettings = () ->
         check = () ->
-            if settings and settings.length
+            if settings
                 return settings
             else
                 return false
@@ -56,12 +56,26 @@ define ['jquery'], ($) ->
 
     getCategories = () ->
         check = () ->
-            if categories and categories.length
+            if categories
                 return categories
             else
                 return false
         callback = (data) ->
-            categories = data
+            copy = (src, dest) ->
+                for val, key in src
+                    if src.hasOwnProperty key
+                        if key is 'categories'
+                            dest[key] = {}
+                            copy src[key], dest[key]
+                        else
+                            dest[key] = val
+            
+            if data and data.length
+                for cate in data
+                    if cate.name
+                        categories[cate.name] = {}
+                        copy cate, categories[cate.name]
+            
             return categories
 
         getJSON './categories.json', check, callback
