@@ -22,8 +22,17 @@ define [
                 that.hide()
         
         load: (categories) -> 
+            convert = (obj) ->
+                arr = []
+                for key, val of obj
+                    if obj.hasOwnProperty key
+                        if val.categories
+                            val.categories = convert val.categories
+                        arr.push val
+                return arr
+            
             that = @
-            @categories = categories
+            @categories = convert categories
             @navHTML = template.render @categories, 'tmpl-nav', navTmpl
             @el.html @navHTML
             $ '#nav ul.master a'

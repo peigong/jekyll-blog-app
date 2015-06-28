@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         copy: {
             mock: { files: [{ expand: true, cwd: 'mock', src: ['**'], dest: 'dist' }] },
             css_images: { files: [{ expand: true, cwd: 'src/css', src: ['images/**'], dest: 'dist/styles' }] },
-            blog: { files: [{ expand: true, cwd: 'blog', src: ['settings.json', 'categories.json', 'CNAME'], dest: 'dist'}] },
+            blog: { files: [{ expand: true, cwd: 'blog', src: ['settings.json', 'categories.json', 'favicon.ico', 'CNAME'], dest: 'dist'}] },
             templates: { files: [{ expand: true, cwd: 'src', src: ['templates/**'], dest: '.tmp/scripts/app' }] },
             css: { files: [{ expand: true, cwd: 'src/css', src: ['**.css'], dest: '.tmp/styles' }] },
             swiper: { files: [{ expand: true, cwd: 'bower_components/swiper/dist/css', src: ['swiper.css'], dest: '.tmp/styles' }] }
@@ -91,7 +91,7 @@ module.exports = function (grunt) {
                     //   closure: 使用 Google's Closure Compiler 的简单优化模式
                     //   closure.keepLines: 使用 closure，但保持换行
                     //   none: 不压缩代码
-                    //optimize: 'none',
+                    optimize: 'none',
                     // 模块根目录。默认情况下所有模块资源都相对此目录。
                     // 若该值未指定，模块则相对build文件所在目录。
                     // 若appDir值已指定，模块根目录baseUrl则相对appDir。

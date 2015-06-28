@@ -1,7 +1,7 @@
 define ['jquery'], ($) ->
     version = 0
     settings = 0
-    categories = {}
+    categories = null
     posts = []
     dict = {}
 
@@ -62,15 +62,19 @@ define ['jquery'], ($) ->
                 return false
         callback = (data) ->
             copy = (src, dest) ->
-                for val, key in src
+                for key, val of src
                     if src.hasOwnProperty key
                         if key is 'categories'
-                            dest[key] = {}
-                            copy src[key], dest[key]
+                            dict = {}
+                            for item in val
+                                if item.name
+                                    dict[item.name] = item
+                            dest[key] = dict
                         else
                             dest[key] = val
             
             if data and data.length
+                categories = {}
                 for cate in data
                     if cate.name
                         categories[cate.name] = {}

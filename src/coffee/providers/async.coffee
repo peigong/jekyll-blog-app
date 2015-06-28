@@ -11,12 +11,11 @@ define [], () ->
                 results[key] = result
                 if counter is counts
                     handler(errors, results)
-        for task, key in tasks
-            err[key] = null
+        for key, task of tasks
+            errors[key] = null
             results[key] = null
-            counts++
-        for task, key in tasks
             task createCallback key
+            counts++
     exports = 
         parallel: parallel
     return exports

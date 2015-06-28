@@ -1,6 +1,7 @@
 .tmp
 
 dist/CNAME
+dist/favicon.ico
 dist/articles
 dist/posts.json
 dist/settings.json

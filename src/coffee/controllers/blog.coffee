@@ -10,7 +10,6 @@ define [
         constructor: () ->
             that = @
             @loaded = false
-            @categories = {}
             if not @categories
                 data.getCategories()
                 .then @load.bind @
@@ -24,9 +23,9 @@ define [
         show: (channel, category, link) ->
             pickFirst = (categories) ->
                 if categories
-                    for category, cate in categories
-                        if categories.hasOwnProperty cate
-                            return cate
+                    for name, cate of categories
+                        if categories.hasOwnProperty name
+                            return name
                 return ''
             if not channel
                 channel = pickFirst @categories
