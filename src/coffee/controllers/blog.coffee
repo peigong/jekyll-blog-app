@@ -6,7 +6,7 @@ define [
     'controllers/post'
 ], (EventEmitter, data, nav, posts, post) ->
     emitter = new EventEmitter
-    class Blog 
+    class Blog
         constructor: () ->
             that = @
             @loaded = false
@@ -19,6 +19,7 @@ define [
             that = @
             if categories
                 that.categories = categories
+            that.loaded = true
             emitter.emit 'loaded'
         show: (channel, category, link) ->
             pickFirst = (categories) ->
