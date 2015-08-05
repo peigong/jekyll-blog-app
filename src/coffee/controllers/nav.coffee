@@ -35,7 +35,7 @@ define [
             @categories = convert categories
             @navHTML = template.render @categories, 'tmpl-nav', navTmpl
             @el.html @navHTML
-            $ '#nav ul.master a'
+            $ '#nav ul.master > li > a'
             .click (e) ->
                 that.show $ this
                 touch.toList()
