@@ -5,7 +5,7 @@
         <div class="slave" data-master="{{= item.name }}">
             <ul>
                 {{~ item.categories:ele:k }}
-                <li><a href="#/{{= item.name }}/{{= ele.name }}" target="_blank" onclick="alert(this.href)">{{= ele.title }}</a></li>
+                <li><a href="#/{{= item.name }}/{{= ele.name }}">{{= ele.title }}</a></li>
                 {{~}}
             </ul>
         </div>
