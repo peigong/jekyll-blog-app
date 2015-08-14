@@ -31,11 +31,11 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        
+
         cssmin: {
             dist: { files: [ { expand: true, cwd: '.tmp/styles', src: 'index.css', dest: 'dist/styles', ext: '.css' } ] }
         },
-        
+
         concat: {
             dist: {
                 src: [
@@ -59,7 +59,6 @@ module.exports = function (grunt) {
                 files: [
                     { expand: true, cwd: 'bower_components/requirejs', src: ['require.js'], dest: 'dist/scripts/lib' },
                     { expand: true, cwd: 'bower_components/text', src: ['text.js'], dest: '.tmp/scripts/lib' },
-                    { expand: true, cwd: 'bower_components/async/lib', src: ['async.js'], dest: '.tmp/scripts/lib' },
                     { expand: true, cwd: 'bower_components/doT', src: ['doT.js'], dest: '.tmp/scripts/lib' },
                     { expand: true, cwd: 'bower_components/director/build', src: ['director.js'], dest: '.tmp/scripts/lib' },
                     { expand: true, cwd: 'bower_components/swiper/dist/js', src: ['swiper.jquery.js'], dest: '.tmp/scripts/lib' },
@@ -136,7 +135,7 @@ module.exports = function (grunt) {
                     removeEmptyAttributes: true
                     //removeOptionalTags: true
                 },
-                files: [ 
+                files: [
                   { expand: true, cwd: '.tmp', src: ['*.html'], dest: './dist' }
                 ]
             }

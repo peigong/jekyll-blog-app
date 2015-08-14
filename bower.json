@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "async": "~0.9.2",
     "requirejs": "~2.1.17",
     "text": "2.0.14",
     "zeptojs": "~1.1.4",
