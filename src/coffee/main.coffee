@@ -13,14 +13,10 @@ requirejs.config
             exports: 'EventEmitter'
 
 require [
-    'jquery'
     'director'
     'routes'
-    'controllers/site'
-    'controllers/nav'
-    'controllers/touch'
-], ($, director, routes, site, nav, touch) ->
-    router = director routes 
-    router.configure 
+], (director, routes) ->
+    router = director routes
+    router.configure
         recurse: 'forward'
     router.init '/';
