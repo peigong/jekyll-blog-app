@@ -15,7 +15,8 @@ requirejs.config
 require [
     'director'
     'routes'
-], (director, routes) ->
+    'controllers/site'
+], (director, routes, site) ->
     router = director routes
     router.configure
         recurse: 'forward'
