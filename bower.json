@@ -21,6 +21,8 @@
     "director": "~1.2.2",
     "doT": "~1.0.1",
     "swiper": "https://github.com/nolimits4web/Swiper.git#3.0.7",
-    "EventEmitter": "https://github.com/peigong/EventEmitter.git"
+    "EventEmitter": "https://github.com/peigong/EventEmitter.git",
+    "jekyll-blog-stub": "https://github.com/peigong/jekyll-blog-stub.git",
+    "jekyll-webapp-templet": "https://github.com/peigong/jekyll-webapp-templet.git"
   }
 }
