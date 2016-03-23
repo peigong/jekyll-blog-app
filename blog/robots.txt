@@ -1,5 +1,0 @@
-Sitemap: 网站地图
-User-agent: *
-Allow: /index.html
-Allow: /sitemap.html
-Allow: /articles/*
