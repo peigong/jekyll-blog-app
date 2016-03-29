@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         copy: {
             mock: { files: [{ expand: true, cwd: 'bower_components/jekyll-blog-stub/stub', src: ['**'], dest: 'dist' }] },
             css_images: { files: [{ expand: true, cwd: 'src/css', src: ['images/**'], dest: 'dist/styles' }] },
-            blog: { files: [{ expand: true, cwd: 'bower_components/jekyll-webapp-templet/blog', src: ['settings.json', 'categories.json', 'favicon.ico'], dest: 'dist'}] },
+            blog: { files: [{ expand: true, cwd: 'bower_components/jekyll-settings-sample/settings', src: ['**'], dest: 'dist'}] },
             templates: { files: [{ expand: true, cwd: 'src', src: ['templates/**'], dest: '.tmp/scripts/app' }] },
             css: { files: [{ expand: true, cwd: 'src/css', src: ['**.css'], dest: '.tmp/styles' }] },
             swiper: { files: [{ expand: true, cwd: 'bower_components/swiper/dist/css', src: ['swiper.css'], dest: '.tmp/styles' }] }
