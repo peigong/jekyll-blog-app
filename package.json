@@ -26,6 +26,10 @@
     "grunt-contrib-watch": "^0.6.1",
     "connect-livereload": "^0.5.2"
   },
+  "scripts": {
+      "prebuild": "npm install && bower install",
+      "build": "grunt"
+  },
   "engines": {
     "node": ">=0.10.0"
   }
